@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Kavkom SIP Client Demo</title>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+  </head>
+
+  <body>
+    <h2>Kavkom SIP.js Client Demo: Audio Calls</h2>
+
+    <div>
+      <ol>
+        <li>
+          Create <code>SimpleUser</code>, connect to server and register
+          extension
+        </li>
+        <li>Place call to destination/receive incoming call</li>
+        <li>Hangup call</li>
+        <li>Disconnect</li>
+      </ol>
+    </div>
+
+    <h4>
+      Client State: <code><span id="state">Initial</span></code>
+    </h4>
+
+    <ol>
+      <li>
+        <p>Provide your creadentials:</p>
+        <table class="mt-8 mb-8">
+          <tr>
+            <td class="pb-0"><label for="domain">Domain</label></td>
+            <td class="pb-0"><label for="extension">Extension</label></td>
+            <td class="pb-0"><label for="password">Password</label></td>
+          </tr>
+          <tr>
+            <td>
+              <input
+                type="text"
+                id="domain"
+                placeholder="Domain"
+              />
+            </td>
+
+            <td>
+              <input
+                type="text"
+                id="extension"
+                placeholder="Extension number"
+              />
+            </td>
+
+            <td>
+              <input type="text" id="password" placeholder="Password" />
+            </td>
+          </tr>
+        </table>
+
+        <button id="connect">Connect</button>
+      </li>
+
+      <li>
+        <button id="call" disabled>Make Call</button> to
+        <input
+          class="m-8"
+          id="target"
+          type="text"
+          placeholder="Destination number"
+          disabled
+        />
+        <strong id="stateHolder" style="display: none"
+          >Call State: <code><span id="callState">Initial</span></code></strong
+        >
+
+        <div id="callControls" style="display: none">
+          <p>
+            When the call is established, the remote audio is added to the
+            following HTML5 audio element...
+          </p>
+
+          <audio id="remoteAudio" controls>
+            <p>Your browser doesn't support HTML5 audio.</p>
+          </audio>
+
+          <p>
+            <input class="m-8" type="checkbox" id="hold" name="hold" disabled />
+            <label for="hold">Hold</label>
+
+            <input class="m-8" type="checkbox" id="mute" name="mute" disabled />
+            <label for="mute">Mute</label>
+
+            <button id="transfer" disabled>Transfer call</button> to
+            <input class="m-8" id="transferTarget" type="text" disabled />
+          </p>
+
+          <p>
+            While the call is established, DTMF may be sent using the following
+            "keypad"...
+          </p>
+          <div class="dtmf">DTMF sent: <span id="dtmf"></span></div>
+
+          <div>
+            <div>
+              <button class="keypad" disabled>1</button>
+              <button class="keypad" disabled>2</button>
+              <button class="keypad" disabled>3</button>
+            </div>
+
+            <div>
+              <button class="keypad" disabled>4</button>
+              <button class="keypad" disabled>5</button>
+              <button class="keypad" disabled>6</button>
+            </div>
+
+            <div>
+              <button class="keypad" disabled>7</button>
+              <button class="keypad" disabled>8</button>
+              <button class="keypad" disabled>9</button>
+            </div>
+
+            <div>
+              <button class="keypad" disabled>*</button>
+              <button class="keypad" disabled>0</button>
+              <button class="keypad" disabled>#</button>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li><button id="hangup" disabled>Hangup Call</button></li>
+      <li><button id="disconnect" disabled>Disconnect</button></li>
+    </ol>
+
+    <dialog id="incomingCallDialog" class="center">
+      <button id="closeDialog">&#x2715;</button>
+      <h3>Incoming call from:</h3>
+      <p id="number"></p>
+      <button id="answerCall">Answer</button>
+      <button id="declineCall">Decline</button>
+    </dialog>
+
+    <script src="./dist/main.js"></script>
+  </body>
+</html>

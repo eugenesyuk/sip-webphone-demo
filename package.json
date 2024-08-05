@@ -1,0 +1,39 @@
+{
+  "name": "sip-webphone-demo",
+  "version": "1.0.0",
+  "description": "SIP.js based webphone client demo",
+  "main": "main.js",
+  "scripts": {
+    "serve": "serve -S",
+    "build": "rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eugenesyuk/sip-webphone-demo.git"
+  },
+  "keywords": [
+    "sip",
+    "sip.js",
+    "webphone",
+    "softphone",
+    "demo",
+    "client",
+    "phone"
+  ],
+  "type": "module",
+  "author": "Eugene Syrotiuk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eugenesyuk/sip-webphone-demo/issues"
+  },
+  "homepage": "https://github.com/eugenesyuk/sip-webphone-demo#readme",
+  "dependencies": {
+    "sip.js": "^0.21.2"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^26.0.1",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "rollup": "^4.20.0"
+  }
+}
